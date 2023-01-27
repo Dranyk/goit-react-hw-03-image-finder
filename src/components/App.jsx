@@ -2,6 +2,7 @@ import { Component } from 'react';
 import fetchImages from './Api';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
+import Button from './Button/Button';
 
 class App extends Component {
 
@@ -61,12 +62,23 @@ class App extends Component {
     }
   };
 
+  loadMore = () => {
+    this.setState(prevState => ({
+      page: prevState.page + 1,
+    }));
+  };
+
   render() {
-    const { images } = this.state;
+    const { images, totalFound } = this.state;
     return (
       <>
         <Searchbar onSubmit={this.searchQuery} />
         <ImageGallery images={images} />
+
+        {images.length > 0 && images.length < totalFound && (
+          <Button loadMore={this.loadMore} />
+        )}
+
       </>
     );
   }
