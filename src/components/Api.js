@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const MAIN_URL =
-  'https://pixabay.com/api/?q=&page=1&key=31971160-1dc39940828f562ba2a47e6da&image_type=photo&orientation=horizontal';
+  'https://pixabay.com/api/?key=31971160-1dc39940828f562ba2a47e6da&image_type=photo&orientation=horizontal';
  
 export const perPage = 12;
 
